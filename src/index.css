@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 2%;
+    --foreground: 190 100% 80%;
+    --card: 222 40% 6%;
+    --card-foreground: 190 100% 80%;
+    --popover: 222 40% 6%;
+    --popover-foreground: 190 100% 80%;
+    --primary: 190 100% 50%;
+    --primary-foreground: 222 47% 2%;
+    --secondary: 270 80% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 30% 12%;
+    --muted-foreground: 190 40% 50%;
+    --accent: 270 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 190 60% 20%;
+    --input: 190 60% 20%;
+    --ring: 190 100% 50%;
+    --radius: 0.75rem;
+
+    --neon-cyan: 190 100% 50%;
+    --neon-purple: 270 80% 60%;
+    --glow-cyan: 0 0 20px hsl(190 100% 50% / 0.4), 0 0 40px hsl(190 100% 50% / 0.2);
+    --glow-purple: 0 0 20px hsl(270 80% 60% / 0.4), 0 0 40px hsl(270 80% 60% / 0.2);
+    --glass-bg: hsl(222 40% 6% / 0.6);
+    --glass-border: hsl(190 100% 50% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    background: linear-gradient(135deg, hsl(222 47% 2%) 0%, hsl(230 40% 5%) 50%, hsl(222 47% 2%) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+  .font-body {
+    font-family: 'Rajdhani', sans-serif;
+  }
+  .font-mono-tech {
+    font-family: 'Share Tech Mono', monospace;
+  }
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+  }
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+  .glow-text-cyan {
+    text-shadow: 0 0 10px hsl(190 100% 50% / 0.6), 0 0 20px hsl(190 100% 50% / 0.3);
+  }
+  .glow-text-purple {
+    text-shadow: 0 0 10px hsl(270 80% 60% / 0.6), 0 0 20px hsl(270 80% 60% / 0.3);
+  }
+  .border-glow-cyan {
+    border-color: hsl(190 100% 50% / 0.3);
+  }
+  .border-glow-purple {
+    border-color: hsl(270 80% 60% / 0.3);
+  }
+  .scanline::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(190 100% 50% / 0.03) 2px,
+      hsl(190 100% 50% / 0.03) 4px
+    );
+    pointer-events: none;
+  }
+  .grid-bg {
+    background-image: 
+      linear-gradient(hsl(190 100% 50% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(190 100% 50% / 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
